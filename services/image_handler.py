@@ -19,7 +19,7 @@ class ImagesHandler:
         self.image_list = list()
 
     def create_list(self, lon, lat, begin, end):
-        assets = earth.assets(lat=lat, lon=lon, begin=begin, end=end)
+        assets = earth.assets(lon=lon, lat=lat, begin=begin, end=end)
 
         for asset in assets:
             img = asset.get_asset_image(cloud_score=True)

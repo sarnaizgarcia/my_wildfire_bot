@@ -1,0 +1,2 @@
+class NotCorrectFormatError(Exception):
+    pass
