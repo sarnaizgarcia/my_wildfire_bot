@@ -4,3 +4,7 @@ class NotCorrectFormatError(Exception):
 
 class ListIsEmptyError(Exception):
     pass
+
+
+class BadRequestError(Exception):
+    pass
