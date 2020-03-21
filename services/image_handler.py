@@ -36,5 +36,8 @@ class ImagesHandler:
     def get_date(self):
         return self.image_list[self.index][0].date
 
+    def get_length(self):
+        return len(self.image_list)
+
 
 images_handler = ImagesHandler()
