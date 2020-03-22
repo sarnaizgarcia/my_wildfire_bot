@@ -9,9 +9,10 @@ def answer_controller(answer_dict):
     try:
         if answer_validator.validate_answer(answer_dict):
             if answer_dict.get('answer').upper() == 'Y':
-                images_handler.get_date()
+                date = images_handler.get_date()
+
                 response = {
-                    'message': 'Origin date found.',
+                    'message': f'Origin date found: {date}.',
                     'status': 200
                 }
             if answer_dict.get('answer').upper() == 'N':
