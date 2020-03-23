@@ -1,8 +1,9 @@
+import json
+import traceback
+
 from errors.errors import NotCorrectFormatError, ListIsEmptyError
 from facade.location_params_facade import location_params_facade
 from services.image_handler import images_handler
-
-import traceback
 
 
 def location_ctrl(params):
@@ -20,25 +21,25 @@ def location_ctrl(params):
             raise ListIsEmptyError
 
         response = {
-            'message': 'List created',
+            'message':  json.dumps({'message': 'List created'}),
             'status': 200
         }
         return response
 
     except NotCorrectFormatError:
         return {
-            'message': 'The dictionary has no correct format',
+            'message':  json.dumps({'message': 'The dictionary has no correct format'}),
             'status': 400
         }
     except ListIsEmptyError:
         return {
-            'message': 'There are no images on the list. Try another latitude or longitude.',
+            'message':  json.dumps({'message': 'There are no images on the list. Try another latitude or longitude.'}),
             'status': 404
         }
     except Exception:
         print(traceback.format_exc())
         return {
-            'message': 'There has been an error',
+            'message':  json.dumps({'message': 'There has been an error'}),
             'status': 500
 
         }

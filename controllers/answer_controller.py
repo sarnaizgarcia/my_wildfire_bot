@@ -1,4 +1,5 @@
 import traceback
+import json
 
 from errors.errors import BadRequestError
 from facade.answer_facade import answer_validator
@@ -12,13 +13,13 @@ def answer_controller(answer_dict):
                 date = images_handler.get_date()
 
                 response = {
-                    'message': f'Origin date found: {date}.',
+                    'message':  json.dumps({'message': f'Origin date found: {date}.'}),
                     'status': 200
                 }
             if answer_dict.get('answer').upper() == 'N':
                 images_handler.increase_index()
                 response = {
-                    'message': 'Watch next image',
+                    'message':  json.dumps({'message': 'Watch next image'}),
                     'status': 200
                 }
             return response
@@ -26,12 +27,12 @@ def answer_controller(answer_dict):
             raise BadRequestError
     except BadRequestError:
         return {
-            'message': 'The request must contain an "answer" key.',
+            'message': json.dumps({'message': 'The request must contain an "answer" key.'}),
             'status': 400
         }
     except Exception:
         print(traceback.format_exc())
         return {
-            'message': 'There has been an error',
+            'message':  json.dumps({'message': 'There has been an error'}),
             'status': 500
         }

@@ -26,6 +26,6 @@ def image_controller():
     except Exception:
         print(traceback.format_exc())
         return {
-            'message': 'There has been an error',
+            'message':  json.dumps({'message': 'There has been an error'}),
             'status': 500
         }
