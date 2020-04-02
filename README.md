@@ -1,6 +1,7 @@
 # my_wildfire_bot
 
 Technical test that consists on creating a bot that determinates origin date of wildfires.
+This repository is a REST API that corresponds to the backend.
 
 To run the app, you will need to:
 
